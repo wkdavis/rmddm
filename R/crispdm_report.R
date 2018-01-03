@@ -1,6 +1,6 @@
 #' CRISP-DM Report
 #'
-#' Format for creating a CRISP-DM report. Adapted from \link{https://www.the-modeling-agency.com/crisp-dm.pdf}.
+#' Format for creating a CRISP-DM report. Adapted from \url{https://www.the-modeling-agency.com/crisp-dm.pdf}.
 #'
 #' @inheritParams rmarkdown::pdf_document
 #' @param ... Arguments to \code{rmarkdown::pdf_document}

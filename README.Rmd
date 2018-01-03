@@ -10,8 +10,8 @@ knitr::opts_chunk$set(
   comment = "#>",
   fig.path = "README-"
 )
-knitr::render_markdown()
-knitr::knit(input = "inst/rmarkdown/templates/crispdm_report/skeleton/skeleton.Rmd", output = "CRISP-DM.md")
+# knitr::render_markdown()
+# knitr::knit(input = "inst/rmarkdown/templates/crispdm_report/skeleton/skeleton.Rmd", output = "CRISP-DM.md")
 ```
 
 # rmddm

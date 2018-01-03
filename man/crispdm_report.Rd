@@ -13,13 +13,13 @@ crispdm_report(...)
 R Markdown output format to pass to \link[rmarkdown:render]{render}
 }
 \description{
-Format for creating a CRISP-DM report. Adapted from \link{https://www.the-modeling-agency.com/crisp-dm.pdf}.
+Format for creating a CRISP-DM report. Adapted from \url{https://www.the-modeling-agency.com/crisp-dm.pdf}.
 }
 \examples{
 
 \dontrun{
 library(rmarkdown)
-draft("MyReport.Rmd", template = "crispdm_report", package = "rmddm")
+draft("MyReport.Rmd", template = "crispdm_report", package = "rmddm", edit=FALSE)
 }
 
 }

@@ -31,4 +31,4 @@ test_format <- function(name, os_skip = NULL) {
   })
 }
 
-test_format("rmddm")
+test_format("crispdm_report")
