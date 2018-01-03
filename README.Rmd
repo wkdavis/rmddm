@@ -1,26 +1,37 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-rmddm
-=====
+
+```{r, echo = FALSE, results='hide', include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+knitr::render_markdown()
+knitr::knit(input = "inst/rmarkdown/templates/crispdm_report/skeleton/skeleton.Rmd", output = "CRISP-DM.md")
+```
+
+# rmddm
 
 rmddm provides Rmarkdown templates for use in data mining, specifically those projects following the [CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining) process. The package is based on the [rticles](https://github.com/rstudio/rticles) package.
 
-Installation
-------------
+## Installation
 
 Installing rmddm from github with:
 
-``` r
+```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
 devtools::install_github("wdavis12/rmddm")
 ```
 
-Example
--------
+## Example
 
 Creating an RMarkdown template with the CRISP-DM structure:
 
-``` r
+```{r example, eval = FALSE}
 library(rmarkdown)
 draft("MyReport.Rmd", template = "crispdm_report", package = "rmddm", edit=FALSE)
 ```
