@@ -4,10 +4,7 @@
 \alias{crispdm_report}
 \title{CRISP-DM Report}
 \usage{
-crispdm_report(...)
-}
-\arguments{
-\item{...}{Arguments to \code{rmarkdown::pdf_document}}
+crispdm_report()
 }
 \value{
 R Markdown output format to pass to \link[rmarkdown:render]{render}
