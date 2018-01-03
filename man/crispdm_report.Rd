@@ -7,7 +7,7 @@
 crispdm_report()
 }
 \value{
-R Markdown output format to pass to \link[rmarkdown:render]{render}
+R Markdown output format to pass to \code{\link[rmarkdown]{render}}
 }
 \description{
 Format for creating a CRISP-DM report. Adapted from \url{https://www.the-modeling-agency.com/crisp-dm.pdf}.

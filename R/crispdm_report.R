@@ -2,7 +2,7 @@
 #'
 #' Format for creating a CRISP-DM report. Adapted from \url{https://www.the-modeling-agency.com/crisp-dm.pdf}.
 #'
-#' @return R Markdown output format to pass to [render][rmarkdown::render]
+#' @return R Markdown output format to pass to \code{\link[rmarkdown]{render}}
 #'
 #' @examples
 #'
