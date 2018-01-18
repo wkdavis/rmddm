@@ -3,6 +3,11 @@
 rmddm
 =====
 
+[![Build Status](https://travis-ci.org/wdavis12/rmddm.svg?branch=master)](https://travis-ci.org/wdavis12/rmddm)
+
+Overview
+--------
+
 rmddm provides Rmarkdown templates for use in data mining, specifically those projects following the [CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining) process. The package is based on the [rticles](https://github.com/rstudio/rticles) package.
 
 Installation
