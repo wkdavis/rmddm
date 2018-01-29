@@ -1,6 +1,12 @@
 context("Functions")
 
 test_that("crispdm_report function", {
+  
+    # don't run on cran because pandoc is required
+    skip_on_cran()
+  
+    # don't run on appveyor because pandoc is required
+    skip_on_appveyor()
     
     # work in a temp directory
     dir <- tempfile()
