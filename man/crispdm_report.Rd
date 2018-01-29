@@ -4,10 +4,19 @@
 \alias{crispdm_report}
 \title{CRISP-DM Report}
 \usage{
-crispdm_report()
+crispdm_report(file, edit = FALSE, create_dir = FALSE)
+}
+\arguments{
+\item{file}{File name for the draft}
+
+\item{edit}{\code{TRUE} to edit the template immediately}
+
+\item{create_dir}{\code{TRUE} to create a new directory for the document
+(the "default" setting leaves this behavior up to the creator of the
+template).}
 }
 \value{
-R Markdown output format to pass to \code{\link[rmarkdown]{render}}
+R Markdown output format to pass to \link[rmarkdown:render]{render}
 }
 \description{
 Format for creating a CRISP-DM report. Adapted from \url{https://www.the-modeling-agency.com/crisp-dm.pdf}.
@@ -16,7 +25,10 @@ Format for creating a CRISP-DM report. Adapted from \url{https://www.the-modelin
 
 \dontrun{
 library(rmarkdown)
-draft("MyReport.Rmd", template = "crispdm_report", package = "rmddm", edit=FALSE)
+crispdm_report(name = "MyReport.Rmd",edit=TRUE,create_dir = FALSE)
 }
 
+}
+\seealso{
+\link[rmarkdown:draft]{draft}, \link[rmarkdown:render]{render}
 }
