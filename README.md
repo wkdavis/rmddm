@@ -3,7 +3,7 @@
 rmddm
 =====
 
-[![Build Status](https://travis-ci.org/wdavis12/rmddm.svg?branch=master)](https://travis-ci.org/wdavis12/rmddm) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/wdavis12/rmddm?branch=master&svg=true)](https://ci.appveyor.com/project/wdavis12/rmddm)
+[![Build Status](https://travis-ci.org/wdavis12/rmddm.svg?branch=master)](https://travis-ci.org/wdavis12/rmddm) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/wdavis12/rmddm?branch=master&svg=true)](https://ci.appveyor.com/project/wdavis12/rmddm) [![codecov](https://codecov.io/gh/wdavis12/rmddm/branch/master/graph/badge.svg)](https://codecov.io/gh/wdavis12/rmddm)
 
 Overview
 --------

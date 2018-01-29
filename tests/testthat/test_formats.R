@@ -1,6 +1,6 @@
 context("Formats")
 
-test_format <- function(name, os_skip = NULL) {
+test_format <- function(name,os_skip = NULL) {
   
   test_that(paste(name, "format"), {
     
@@ -18,15 +18,15 @@ test_format <- function(name, os_skip = NULL) {
     on.exit(setwd(oldwd), add = TRUE)
     
     # create a draft of the format
-    testdoc <- "testdoc.Rmd"
-    rmarkdown::draft(testdoc,
+    testdocs <- "testdoc.Rmd"
+    rmarkdown::draft(testdocs,
                      system.file("rmarkdown", "templates", name,
                                  package = "rmddm"),
                      create_dir = FALSE,
                      edit = FALSE)
     
     # render it
-    output_file <- rmarkdown::render(testdoc)
+    output_file <- rmarkdown::render(testdocs)
     expect_true(file.exists(output_file))
   })
 }
