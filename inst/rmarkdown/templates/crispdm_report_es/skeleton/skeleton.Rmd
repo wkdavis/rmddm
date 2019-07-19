@@ -1,0 +1,637 @@
+---
+title: "Título del Proyecto"
+author: "Autor"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output: 
+  html_document: 
+    number_sections: yes
+    toc: yes
+    toc_depth: 2
+    toc_float: true
+---
+```{r setup, include=FALSE}
+## set output options
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+options(scipen=999)
+
+## load packages
+```
+
+# Comprensión del negocio
+
+## Establecimiento de los objetivos del negocio
+El primer objetivo del analista es comprender a fondo, desde una perspectiva de negocio, lo que el cliente realmente quiere lograr. A menudo, el cliente tiene muchos objetivos y limitaciones que compiten entre sí y que deben ser equilibrados adecuadamente. El objetivo del analista es descubrir factores importantes al principio del proyecto que pueden influir en el resultado final. Una consecuencia probable de descuidar este paso sería gastar mucho esfuerzo en producir las respuestas correctas a las preguntas equivocadas.
+
+### Contexto
+Recopilar la información que se conoce sobre la situación empresarial de la organización al inicio del proyecto. Estos detalles no sólo sirven para identificar más de cerca los objetivos de negocio a alcanzar, sino también para identificar los recursos, tanto humanos como materiales, que pueden ser utilizados o necesarios durante el transcurso del proyecto.
+
+#### Organización
+* Desarrollar organigramas que identifiquen las divisiones, departamentos y grupos de proyectos. El organigrama también debe identificar los nombres y responsabilidades de los gerentes
+* Identificar a las personas claves y sus roles
+* Identificar un patrocinador interno (patrocinador financiero y usuario principal/experto en el dominio)
+* Indicar si existe un comité directivo y hacer una lista de sus miembros
+* Identificar las unidades de negocio afectadas por el proyecto de minería de datos (por ejemplo, marketing, ventas, finanzas)
+
+#### Problemática
+* Identificar el área del problema (por ejemplo, marketing, atención al cliente, desarrollo de negocios, etc.)
+* Describir el problema en términos generales
+* Comprobar el estado actual del proyecto (por ejemplo, comprobar si ya está claro dentro de la unidad de negocio que se va a realizar un proyecto de minería de datos, o si es necesario promover la minería de datos como una tecnología clave en el negocio).
+* Aclarar los requisitos previos del proyecto (por ejemplo, ¿cuál es la motivación del proyecto? ¿El negocio ya utiliza la minería de datos?)
+* Si es necesario, preparar presentaciones sobre la minería de datos a la empresa
+* Identificar el grupo objetivo para el producto final (por ejemplo, ¿Se espera que entreguemos un informe para la alta gerencia o un sistema para ser utilizado por usuarios inexpertos?)
+* Identificar las necesidades y expectativas de los usuarios
+
+#### Soluciones existentes
+* Describir cualquier solución que se utilice actualmente para tratar el problema
+* Describir las ventajas y desventajas de la solución actual y el nivel de aceptación por parte de los usuarios.
+
+### Objetivos del negocio
+Describir el objetivo principal del cliente, desde una perspectiva de negocio. Además del objetivo principal del negocio, normalmente hay un gran número de preguntas comerciales relacionadas que el cliente desea abordar. Por ejemplo, el objetivo principal del negocio podría ser mantener a los clientes actuales mediante la predicción de cuándo son propensos a pasarse a la competencia, mientras que un objetivo secundario del negocio podría ser determinar si las tarifas más bajas afectan sólo a un segmento particular de clientes.
+
+* Describir brevemente el problema a resolver
+* Especificar todas las preguntas de negocio con la mayor precisión posible
+* Especificar cualquier otro requisito del negocio (por ejemplo, el negocio no quiere perder ningún cliente).
+* Especificar los beneficios esperados en términos de negocio
+* **Tenga cuidado en fijar metas inalcanzables, hágalas lo más realistas posible**
+
+### Criterios de éxito del negocio
+Describir los criterios para un resultado exitoso o útil del proyecto desde el punto de vista empresarial. Esto podría ser bastante específico y fácilmente medible, como la reducción de la rotación de clientes a un cierto nivel, o general y subjetivo, como "dar una visión útil de las relaciones". En este último caso, asegúrese de indicar quién haría el juicio subjetivo.
+
+* Especificar los criterios de éxito del negocio (por ejemplo, mejorar la tasa de respuesta en una campaña de correo en un 10 por ciento y la tasa de registro en un 20 por ciento).
+* Identificar quién evalúa los criterios de éxito  
+
+**Cada uno de los criterios de éxito debe estar relacionado con al menos uno de los objetivos de negocio especificados**
+
+Antes de comenzar la evaluación de la situación, usted podría analizar experiencias previas de este problema, ya sea internamente, usando CRISP-DM, o externamente, usando soluciones pre-empaquetadas.
+
+## Evaluación de la situación
+Esta tarea implica una investigación más detallada sobre todos los recursos, limitaciones, suposiciones y otros factores que deben ser considerados al determinar la meta del análisis de datos y al desarrollar el plan del proyecto.
+
+### Inventario de recursos
+Enumere los recursos disponibles para el proyecto, incluyendo el personal (expertos en negocios y datos, apoyo técnico, expertos en minería de datos), datos (acceso a datos operativos o almacenados), recursos informáticos (plataformas de hardware) y software (herramientas de minería de datos, otro software relevante).  
+
+#### Recursos de hardware
+* Identificar el hardware base
+* Establecer la disponibilidad del hardware para el proyecto de minería de datos.
+* Comprobar si el cronograma de mantenimiento del hardware entra en conflicto con la disponibilidad para el proyecto de minería de datos.
+
+#### Fuentes de datos y conocimientos
+* Identificar las fuentes de datos
+* Identificar el tipo de fuentes de datos (fuentes en línea, expertos, documentación escrita, etc.)
+* Identificar las fuentes de conocimientos
+* Identificar el tipo de fuentes de conocimiento (fuentes en línea, expertos, documentación escrita, etc.)
+* Revisar las herramientas y técnicas disponibles
+* Describir los conocimientos previos (de manera formal o informal)
+
+#### Recursos humanos
+* Identificar el patrocinador del proyecto (si es diferente del patrocinador interno como en [Organización])
+* Identificar al administrador del sistema, al administrador de la base de datos y al personal de soporte técnico para preguntas adicionales.
+* Identificar a los analistas de mercado, expertos en minería de datos y estadísticos, y verificar su disponibilidad.
+* Comprobar la disponibilidad de los expertos de dominio para las fases siguientes.
+
+Recuerde que se puede necesitar personal técnico en momentos puntuales durante todo el proyecto, por ejemplo, durante la transformación de datos.
+
+### Requisitos, suposiciones y restricciones
+*Enumerar todos los requisitos del proyecto, incluyendo el cronograma de finalización, la comprensibilidad, la calidad de los resultados y la seguridad, así como los aspectos legales
+
+*Listar las suposiciones hechas por el proyecto. Estos pueden ser supuestos sobre los datos, que pueden ser verificados durante la minería de datos, pero también pueden incluir supuestos no verificables relacionados con el proyecto. Es particularmente importante enumerar estos últimos si afectan a la validez de los resultados.
+
+*Enumerar las limitaciones del proyecto. Estas limitaciones pueden incluir la falta de recursos para llevar a cabo algunas de las tareas del proyecto en el tiempo requerido, o pueden existir limitaciones legales o éticas en el uso de los datos o de la solución necesaria para llevar a cabo la tarea de minería de datos.
+
+#### Requisitos
+* Especificar el perfil del grupo objetivo
+* Capturar todos los requisitos 
+* Capturar los requisitos de comprensibilidad, precisión, despliegue, mantenimiento y reproducibilidad del proyecto de minería de datos y de los modelos resultantes.
+* Capturar los requisitos de seguridad, restricciones legales, privacidad, informes y calendario del proyecto. 
+
+#### Suposiciones
+* Aclarar todas las suposiciones (incluidas las implícitas) y hacerlas explícitas (por ejemplo, para abordar la cuestión empresarial, es necesario un número mínimo de clientes con más de 50 años de edad).
+* Listar las suposiciones sobre la calidad de los datos (por ejemplo, exactitud, disponibilidad)
+* Listar las suposiciones sobre factores externos (por ejemplo, cuestiones económicas, productos de la competencia)
+* Aclarar las suposiciones que conducen a cualquier  estimación (por ejemplo, se supone que el precio de una herramienta específica es inferior a 1.000 dólares).
+* Listar todas las suposiciones con respecto a si es necesario entender, describir o explicar el modelo (por ejemplo, cómo se debe presentar el modelo y los resultados a la alta gerencia/patrocinador).  
+
+**La lista de suposiciones también incluye las suposiciones iniciales del proyecto**
+
+#### Restricciones
+* Revisar las restricciones generales (por ejemplo, cuestiones legales, presupuesto, plazos y recursos).
+* Revisar el acceso a las fuentes de datos (por ejemplo, restricciones de acceso, contraseña requerida).
+* Revisar la accesibilidad técnica de los datos (sistemas operativos, sistema de gestión de datos, formato de archivo o base de datos).
+* Comprobar las restricciones de presupuesto (costes fijos, costes de ejecución, etc.)
+
+### Riesgos y Contingencias
+Enumere los riesgos, es decir, los eventos que pueden ocurrir, que impactan el cronograma, el costo o el resultado. Enumerar los correspondientes planes de contingencia.
+#### Identificar los riesgos
+* Identificar los riesgos del negocio (por ejemplo, la competencia obtiene primero mejores resultados).
+* Identificar los riesgos organizacionales (por ejemplo, el departamento que solicita el proyecto no tiene fondos para el proyecto).
+* Identificar los riesgos financieros (por ejemplo, el financiamiento de las siguientes etapas depende de los resultados iniciales de la minería de datos).
+* Identificar los riesgos técnicos
+* Identificar los riesgos que dependen de los datos y de las fuentes de datos (por ejemplo, mala calidad).
+
+#### Desarrollar planes de contingencia
+* Determinar las condiciones bajo las cuales cada riesgo puede ocurrir
+* Desarrollar planes de contingencia
+
+### Terminología
+Elaborar un glosario de terminología relevante para el proyecto. Esto debe incluir al menos dos componentes:  
+
+1. Un glosario de terminología empresarial relevante, que forma parte del entendimiento empresarial disponible para el proyecto.
+2. Un glosario de terminología de minería de datos, ilustrado con ejemplos relevantes para el problema empresarial en cuestión.  
+
+* Verificar la existencia de glosarios previos; de lo contrario, comenzar a redactarlos.
+* Hablar con los expertos de dominio para entender su terminología
+* Familiarizarse con la terminología del negocio
+
+### Beneficios y costos
+Preparar un análisis de costo-beneficio para el proyecto, comparando los costos del proyecto con los beneficios potenciales para el negocio si es exitoso.
+
+* Estimar los costos de la recolección de datos
+* Estimar los costos de desarrollo e implementación de una solución
+* Identificar los beneficios (por ejemplo, la mejora de la satisfacción del cliente, el retorno de la inversión y el aumento de los ingresos).
+* Estimar los costos operativos
+
+La comparación debe ser lo más específica posible, ya que esto permite presentar una mejor propuesta de negocio.  
+
+**Recuerde identificar los costos ocultos, tales como la extracción y preparación repetida de datos, los cambios en los flujos de trabajo y el tiempo requerido para la capacitación.**
+
+## Determinar los objetivos de la minería de datos
+Una meta empresarial establece los objetivos en la terminología empresarial; una meta de minería de datos establece los objetivos del proyecto en términos técnicos. Por ejemplo, el objetivo empresarial podría ser, "Aumentar las ventas de catálogos a clientes existentes", mientras que el objetivo de la minería de datos podría ser, "Predecir cuántos productos comprará un cliente, dadas sus compras en los últimos tres años, la información demográfica relevante y el precio del artículo".
+
+### Objetivos de la minería de datos
+Describe los resultados previstos del proyecto que permitan alcanzar los objetivos de negocio. Tenga en cuenta que normalmente se trata de mensajes técnicos.
+
+* Traducir las preguntas de negocio a objetivos de minería de datos (por ejemplo, una campaña de marketing requiere la segmentación de los clientes para decidir a quién dirigirse en esta campaña; se debe especificar el nivel/tamaño de los segmentos).
+* Especificar el tipo de problema de minería de datos (por ejemplo, clasificación, descripción, predicción y agrupación). Para más detalles sobre los tipos de problemas de minería de datos, véase el Apéndice 2.
+
+### Criterios de éxito para la minería de datos
+Definir los criterios para un resultado exitoso del proyecto en términos técnicos, por ejemplo, un cierto nivel de precisión predictiva o un perfil de propensión a la compra con un determinado grado de "elevación". Al igual que con los criterios de éxito empresarial, puede ser necesario describirlos en términos subjetivos, en cuyo caso se debe identificar a la persona o personas que hacen el juicio subjetivo.
+
+* Especificar los criterios para la evaluación del modelo (por ejemplo, la precisión, el rendimiento y la complejidad del modelo).
+* Definir 'benchmarks' para los criterios de evaluación
+* Especificar los criterios que se refieren a los criterios de evaluación subjetivos (por ejemplo, el modelo explica la capacidad y los datos y los conocimientos de marketing proporcionados por el modelo).
+
+**Recuerde que los criterios de éxito de la minería de datos son diferentes a los criterios de éxito del negocio definidos anteriormente.**
+
+Recuerde que es prudente planificar la implementación desde el inicio del proyecto.
+
+## Generación del plan de proyecto
+Describa el plan previsto para alcanzar los objetivos de la minería de datos y, por lo tanto, para alcanzar los objetivos del negocio.
+
+### Plan de proyecto
+Enumerar las etapas a ejecutar en el proyecto, junto con su duración, recursos requeridos, entradas, salidas y dependencias. Siempre que sea posible, explicite las iteraciones a gran escala en el proceso de minería de datos, por ejemplo, las repeticiones de las fases de modelado y evaluación. Como parte del plan del proyecto, también es importante analizar las dependencias entre el cronograma y los riesgos. Marque los resultados de estos análisis explícitamente en el plan del proyecto, idealmente con acciones y recomendaciones de acciones si los riesgos se manifiestan.
+
+Aunque esta es la única tarea en la que se menciona directamente el plan del proyecto, debe ser consultado continuamente y revisado a lo largo de todo el proyecto. El plan de proyecto debe ser consultado como mínimo cada vez que se inicie una nueva tarea o se inicie una nueva iteración de una tarea o actividad.
+
+* Definir el plan de proceso inicial y discutir la viabilidad con todo el personal involucrado.
+* Combinar todos los objetivos identificados y las técnicas seleccionadas en un procedimiento coherente que resuelva las cuestiones de negocio y cumpla con los criterios de éxito del negocio.
+* Estimar el esfuerzo y los recursos necesarios para lograr y desplegar la solución. (Es útil tener en cuenta la experiencia de otras personas al estimar las escalas de tiempo para los proyectos de minería de datos. Por ejemplo, a menudo se postula que entre el 50 y el 70 por ciento del tiempo y el esfuerzo de un proyecto de minería de datos se utiliza en la fase de preparación de datos y entre el 20 y el 30 por ciento en la fase de comprensión de datos, mientras que sólo entre el 10 y el 20 por ciento se gasta en cada una de las fases de modelado, evaluación y comprensión de negocios, y entre el 5 y el 10 por ciento en la fase de implementación).
+* Identificar los pasos críticos
+* Identificar los puntos de decisión
+* Identificar los puntos de revisión
+* Identificar las principales iteraciones
+
+### Evaluación inicial de herramientas y técnicas
+Al final de la primera fase, el equipo del proyecto realiza una evaluación inicial de las herramientas y técnicas. Aquí, es importante seleccionar una herramienta de minería de datos que soporte varios métodos para diferentes etapas del proceso, ya que la selección de herramientas y técnicas puede influir en todo el proyecto.
+
+* Crear una lista de criterios de selección de herramientas y técnicas (o utilizar uno existente si está disponible).
+* Elegir herramientas y técnicas potenciales
+* Evaluar la idoneidad de las técnicas
+* Revisar y priorizar las técnicas aplicables de acuerdo a la evaluación de soluciones alternativas.
+
+# Comprensión de los datos
+
+## Recopilación de datos iniciales
+Adquirir los datos (o acceso a los datos) listados en los recursos del proyecto. Esta recopilación inicial incluye la carga de datos, si es necesario para el análisis. Por ejemplo, si tiene la intención de utilizar una herramienta específica para el análisis de datos, es lógico cargarlos en esta herramienta.
+
+### Informe inicial de recopilación de datos
+Describa todos los datos utilizados para el proyecto e incluya cualquier requisito de selección para obtener datos más detallados. El informe de recopilación de datos también debe definir si algunos atributos son relativamente más importantes que otros.
+
+Recuerde que cualquier evaluación de la calidad de los datos debe hacerse no sólo de las fuentes de datos individuales, sino también de cualquier dato que resulte de la fusión entre fuentes de datos. Debido a las inconsistencias entre las fuentes, los datos fusionados pueden presentar problemas que no existen en las fuentes de datos individuales.
+
+#### Requisitos de datos
+* Planificar qué información se necesita (por ejemplo, sólo determinados atributos o información adicional específica).
+* Comprobar si toda la información necesaria (para resolver los objetivos de la minería de datos) está  disponible.
+
+#### Criterios de selección
+* Especificar los criterios de selección (por ejemplo, ¿Qué atributos son necesarios para los objetivos de minería de datos especificados? ¿Qué atributos se han identificado como irrelevantes? ¿Cuántos atributos podemos manejar con las técnicas elegidas?)
+* Seleccionar tablas/archivos de interés
+* Seleccionar datos dentro de una tabla/archivo
+* Piense en cuánto tiempo se debe utilizar un historial (por ejemplo, aunque se disponga de 18 meses de datos, es posible que sólo se necesiten 12 meses para el ejercicio).
+
+**Tenga en cuenta que los datos recopilados de diferentes fuentes pueden dar lugar a problemas de calidad cuando se fusionan (por ejemplo, los archivos de direcciones fusionados con una base de datos de clientes pueden mostrar inconsistencias de formato, invalidez de los datos, etc.)**.
+
+#### Inserción de datos
+* Si los datos contienen campos de 'free text', ¿necesitamos codificarlos para el modelado o queremos agrupar entradas específicas?
+* ¿Cómo se pueden adquirir los atributos faltantes?
+* ¿Cómo podemos extraer mejor los datos?
+
+Recuerde que algunos conocimientos sobre los datos pueden provenir de fuentes no electrónicas (por ejemplo, de personas, texto impreso, etc.).
+
+Recuerde que puede ser necesario preprocesar los datos (datos de series temporales, promedios ponderados, etc.).
+
+## Describir los datos
+Examinar las propiedades "brutas" de los datos adquiridos e informar sobre los resultados.
+
+### Informe de descripción de datos
+Describa los datos que se han adquirido, incluyendo el formato de los datos, la cantidad de datos (por ejemplo, el número de registros y campos dentro de cada tabla), las identidades de los campos y cualquier otra característica que se haya descubierto.
+
+#### Análisis volumétrico de datos
+* Identificar los datos y el método de captura
+* Acceso a fuentes de datos
+* Usar análisis estadísticos si es necesario
+* Reportar las tablas y sus relaciones
+* Comprobar el volumen de datos, el número de múltiplos, la complejidad
+* Tenga en cuenta si los datos contienen campos 'free text'
+
+#### Tipos de atributos y valores
+* Comprobar la accesibilidad y disponibilidad de los atributos
+* Comprobar los tipos de atributos (numéricos, simbólicos, taxonómicos, etc.)
+* Verificar los rangos de valores de los atributos
+* Analizar las correlaciones de atributos
+* Comprender el significado de cada atributo y valor del atributo en términos de negocio.
+* Para cada atributo, calcular estadísticas básicas (por ejemplo, distribución, promedio, máximo, mínimo, desviación estándar, varianza, moda, asimetría, etc.).
+* Analizar las estadísticas básicas y relacionar los resultados con su significado en términos de negocio.
+* Decidir si el atributo es relevante para el objetivo específico de la minería de datos.
+* Determinar si el significado del atributo se usa consistentemente
+* Entrevistar a los expertos de dominio para obtener su opinión sobre la importancia de los atributos.
+* Decidir si es necesario balancear los datos (en base a las técnicas de modelado).
+
+#### Claves
+* Analizar las relaciones claves
+* Comprobar la cantidad de solapamientos de los  atributos clave en las tablas.
+
+#### Revisar los supuestos/objetivos
+* Actualizar la lista de supuestos, si es necesario
+
+## Explorar los datos
+Esta tarea aborda las preguntas de la minería de datos que pueden abordarse mediante técnicas de consulta, visualización y generación de informes. Estos análisis pueden abordar directamente los objetivos de la minería de datos. Sin embargo, también pueden contribuir a la descripción de los datos y los informes de calidad, o perfeccionarlos, y contribuir a la transformación y a otras medidas de preparación de los datos necesarias antes de que puedan realizarse análisis adicionales.
+
+### Informe de exploración de datos
+Describir los resultados de esta tarea, incluyendo los  hallazgos o hipótesis iniciales y su impacto en el resto del proyecto. El informe también puede incluir gráficos que indican las características de los datos o apuntan a subconjuntos de datos interesantes que merecen un examen más detallado.
+
+#### Exploración de datos
+* Analizar propiedades de atributos interesantes en detalle (por ejemplo, estadísticas básicas, subpoblaciones interesantes).
+* Identificar las características de las subpoblaciones
+
+#### Formar suposiciones para análisis futuros
+* Evaluar la información y los hallazgos en el informe de descripción de datos.
+* Formular una hipótesis e identificar acciones
+* Transformar la hipótesis en una meta de minería de datos, si es posible.
+* Aclarar los objetivos de la minería de datos o hacerlos más precisos. Una búsqueda "ciega" no es necesariamente inútil, pero es preferible una búsqueda más dirigida hacia los objetivos del negocio.
+* Realizar análisis básicos para verificar la hipótesis
+
+## Verificar la calidad de los datos
+Examinar la calidad de los datos, abordando preguntas como: ¿Están completos los datos (cubre todos los casos requeridos)? ¿Están correctos o contienen errores? Si hay errores, ¿qué tan comunes son? ¿Hay valores faltantes en los datos? Si es así, ¿cómo se representan, dónde ocurren y qué tan comunes son?
+
+### Informe de calidad de datos
+Listar los resultados de la verificación de calidad de los datos; si hay problemas de calidad, enumerar las posibles soluciones.
+
+* Identificar valores especiales y catalogar su significado
+
+#### Revisar claves, atributos
+* Verificar la cobertura (por ejemplo, si se representan todos los valores posibles)
+* Verificar claves
+* Verificar que los significados de los atributos y los valores contenidos encajan entre sí
+* Identificar atributos faltantes y campos en blanco
+* Establecer el significado de los datos faltantes
+* Compruebe si hay atributos con valores diferentes que tengan significados similares (por ejemplo, bajo en grasa, dieta).
+* Revisar la ortografía y el formato de los valores (por ejemplo, el mismo valor, pero a veces comenzando con una letra minúscula, a veces con una mayúscula).
+* Comprobar si hay desviaciones y decidir si una desviación es "ruido" o puede indicar un fenómeno interesante.
+* Verificar la plausibilidad de los valores (por ejemplo, todos los campos que tienen los mismos o casi los mismos valores).
+
+Revise cualquier atributo que entre en conflicto con el sentido común (por ejemplo, adolescentes con altos niveles de ingresos).
+
+Utilice gráficas de visualización, histogramas, etc. para revelar inconsistencias en los datos.
+
+#### Calidad de datos en archivos planos
+* Si los datos se almacenan en archivos planos, compruebe qué delimitador se utiliza y si se utiliza de forma coherente dentro de todos los atributos.
+* Si los datos se almacenan en archivos planos, compruebe el número de campos de cada registro para ver si coinciden.
+
+#### Ruido e inconsistencias entre las fuentes
+* Verificar consistencias y redundancias entre diferentes fuentes.
+* Plan para lidiar con el ruido
+* Detectar el tipo de ruido y qué atributos se ven afectados
+
+Recuerde que puede ser necesario excluir algunos datos que no muestran un comportamiento positivo o negativo (por ejemplo, para comprobar el comportamiento de los clientes en materia de préstamos, excluir a todos aquellos que nunca han pedido prestado, ni financiado una hipoteca de vivienda, aquellos cuya hipoteca está a punto de vencer, etc.).
+
+Revisar si los supuestos son válidos o no, dada la información actual sobre los datos y el conocimiento del negocio.
+
+# Preparación de datos
+**Conjunto de datos**: Estos son los conjuntos de datos producidos por la fase de preparación de los datos, utilizados para el modelado o para el trabajo de análisis principal del proyecto. 
+
+**Descripción del conjunto de datos:** Esta es la descripción de los conjuntos de datos utilizados para el modelado o para el trabajo de análisis principal del proyecto.
+
+## Seleccionar datos
+Decidir qué datos se utilizarán para el análisis. Los criterios incluyen la relevancia para los objetivos de la minería de datos, la calidad y las restricciones técnicas, como los límites en el volumen de datos o los tipos de datos.
+
+### Justificación de la inclusión/exclusión
+Enumere los datos que deben utilizarse/excluirse y las razones de estas decisiones.
+
+* Recopilar datos adicionales (de diferentes fuentes internas y externas).
+* Realizar pruebas de significancia y correlación para decidir si los campos deben ser incluidos.
+* Reconsiderar los criterios de selección de datos a la luz de las experiencias de calidad de datos y exploración de datos (es decir, tal vez desee incluir o excluir otros conjuntos de datos).
+* Reconsiderar los criterios de selección de datos a la luz de la experiencia del modelado (es decir, la evaluación del modelo puede mostrar que se necesitan otros conjuntos de datos).
+* Seleccionar diferentes subconjuntos de datos (por ejemplo, diferentes atributos, sólo datos que cumplan ciertas condiciones).
+* Considere el uso de técnicas de muestreo (por ejemplo, una solución rápida puede implicar la división del conjunto de datos en datos de prueba y entrenamiento o la reducción del tamaño del conjunto de datos, si la herramienta no puede manejar el conjunto de datos completo. También puede ser útil tener muestras ponderadas para dar diferente importancia a diferentes atributos o a diferentes valores del mismo atributo.)
+* Documentar las razones de la inclusión/exclusión
+* Comprobar las técnicas disponibles para el muestreo de datos
+
+En función de los criterios de selección de datos, decida si uno o más atributos son más importantes que otros y pondere los atributos en consecuencia. Decidir, basándose en el contexto (es decir, la aplicación, la herramienta, etc.), cómo manejar la ponderación.
+
+## Limpieza de datos
+Elevar la calidad de los datos al nivel requerido por las técnicas de análisis seleccionadas. Esto puede implicar la selección de subconjuntos limpios de datos, la inserción de valores predeterminados adecuados, o técnicas más ambiciosas como la estimación de los datos que faltan mediante modelización.
+
+### Informe de limpieza de datos
+Describa las decisiones y acciones que se tomaron para abordar los problemas de calidad de datos reportados durante la tarea de verificación de la calidad de datos. Si los datos se van a utilizar en el ejercicio de extracción de datos, el informe debe abordar las cuestiones pendientes relativas a la calidad de los datos y el posible efecto que esto podría tener en los resultados.
+
+* Considerar cómo lidiar con cualquier tipo de ruido observado.
+* Corregir, eliminar o ignorar el ruido
+* Decidir cómo tratar con valores especiales y su significado. Los valores especiales pueden dar lugar a muchos resultados extraños y deben ser examinados cuidadosamente. Ejemplos de valores especiales podrían surgir al tomar los resultados de una encuesta donde algunas preguntas no fueron hechas o no fueron contestadas. Esto podría resultar en un valor de 99 para datos desconocidos. Por ejemplo, 99 por estado civil o afiliación política. También pueden surgir valores especiales cuando los datos están truncados, por ejemplo, 00 para personas de 100 años o todos los coches con 100.000 km en el cuentakilómetros.
+* Reconsiderar los criterios de selección de datos a la luz de las experiencias de limpieza de datos (es decir, puede que desee incluir o excluir otros conjuntos de datos).
+
+Recuerde que algunos campos pueden ser irrelevantes para los objetivos de la minería de datos y, por lo tanto, el ruido en esos campos no tiene importancia. Sin embargo, si el ruido se ignora por estas razones, debe documentarse completamente, ya que las circunstancias pueden cambiar más tarde.
+
+## Construcción de datos
+Esta tarea incluye operaciones constructivas de preparación como la producción de atributos derivados, registros nuevos o valores transformados para atributos existentes.
+
+* Revisar los mecanismos de construcción disponibles con la lista de herramientas sugeridas para el proyecto.
+* Decidir si es mejor realizar la construcción dentro o fuera de la herramienta (es decir, cuál es más eficiente, exacta, repetible).
+* Reconsiderar los criterios de selección de datos a la luz de las experiencias de construcción de datos (es decir, puede incluir o excluir otros conjuntos de datos).
+
+### Atributos derivados
+Los atributos derivados son atributos nuevos que se construyen a partir de uno o más atributos existentes en el mismo registro. Un ejemplo podría ser: área = longitud * anchura.
+
+¿Por qué debemos construir atributos derivados durante el curso de una investigación de minería de datos? No se debe pensar que sólo se deben utilizar datos de bases de datos u otras fuentes en la construcción de un modelo. Los atributos derivados pueden ser construidos porque:
+
+* El conocimiento de negocio nos convence de que algún hecho es importante y debe ser representado, aunque actualmente no tenemos ningún atributo que lo represente.
+* El algoritmo de modelado maneja sólo ciertos tipos de datos - por ejemplo, estamos usando regresión lineal y sospechamos que hay ciertas no linealidades que no se incluirán en el modelo.
+* El resultado de la fase de modelado sugiere que ciertos hechos no están siendo cubiertos.
+
+#### Atributos derivados
+* Decidir si algún atributo debe ser normalizado (por ejemplo, cuando se utiliza un algoritmo de agrupación con edad e ingresos, en ciertas monedas, los ingresos dominarán).
+* Consider adding new information on the relevant importance of attributes by adding new attributes (for example, attribute weights, weighted normalization)
+* ¿Cómo pueden construirse o imputarse los atributos que faltan? Decida el tipo de construcción (por ejemplo, agregado, promedio, inducción).
+* Agregar nuevos atributos a los datos accedidos
+
+Antes de agregar Atributos Derivados, trate de determinar si y cómo facilitan el proceso del modelo o facilitan el algoritmo de modelado. Tal vez "ingresos por persona" sea un atributo mejor y más fácil de usar que "ingresos por hogar". No derive atributos simplemente para reducir el número de atributos de entrada.
+
+Otro tipo de atributo derivado es la transformación de un solo atributo, que normalmente se realiza para adaptarse a las necesidades de las herramientas de modelado.
+
+#### Transformaciones de un solo atributo
+* Especificar los pasos de transformación necesarios  (por ejemplo, cambiar un campo de un atributo numérico).
+* Realizar pasos de transformación
+
+Las transformaciones pueden ser necesarias para cambiar rangos a campos simbólicos (por ejemplo, edades a rangos de edad) o campos simbólicos ("definitivamente sí", "sí", "no sé", "no sé") a valores numéricos. Las herramientas de modelado o los algoritmos a menudo las requieren.
+
+### Registros generados
+Los registros generados son registros completamente nuevos, que añaden nuevos conocimientos o representan nuevos datos que no están representados de otra manera (por ejemplo, habiendo segmentado los datos, puede ser útil generar un registro para representar al miembro prototípico de cada segmento para su posterior procesamiento).
+
+Verificar las técnicas disponibles si es necesario (por ejemplo, mecanismos para construir prototipos para cada segmento de datos).
+
+## Integración de datos
+Estos son métodos para combinar información de múltiples tablas u otras fuentes para crear nuevos registros o valores.
+
+### Fusionar datos
+
+La fusión de tablas se refiere a la unión de dos o más tablas que tienen información diferente sobre los mismos objetos. En esta etapa, también puede ser aconsejable generar nuevos registros. También se puede recomendar generar valores agregados.
+
+La agregación se refiere a las operaciones en las que se calculan nuevos valores resumiendo la información de varios registros y/o tablas.
+
+* Comprobar si las herramientas de integración son capaces de integrar las fuentes de entrada según sea necesario.
+* Integrar fuentes y almacenar resultados
+* Reconsiderar los criterios de selección de datos a la luz de las experiencias de integración de datos (es decir, es posible que desee incluir o excluir otros conjuntos de datos).
+
+Recuerde que algunos datos pueden estar contenidos en un formato no electrónico.
+
+## Formato de datos
+Las transformaciones de formato se refieren principalmente a modificaciones sintácticas hechas a los datos que no cambian su significado, pero que pueden ser requeridas por la herramienta de modelado.
+
+### Datos reformateados
+Algunas herramientas tienen requisitos sobre el orden de los atributos, como que el primer campo sea un identificador único para cada registro o que el último campo sea el campo de resultados que el modelo debe predecir.
+
+#### Reorganizando atributos
+Algunas herramientas tienen requisitos sobre el orden de los atributos, como que el primer campo sea un identificador único para cada registro o que el último campo sea el campo de resultados que el modelo debe predecir.
+
+#### Reordenar los registros
+Puede ser importante cambiar el orden de los registros en el conjunto de datos. Tal vez la herramienta de modelado requiera que los registros se ordenen de acuerdo con el valor del atributo de resultado.
+
+#### Reformateado dentro del valor
+* Estos son cambios puramente sintácticos realizados para satisfacer los requisitos de la herramienta de modelado específica.
+* Reconsiderar los criterios de selección de datos a la luz de las experiencias de limpieza de datos (es decir, puede que desee incluir o excluir otros conjuntos de datos).
+
+## Conjunto de datos
+Estos son los conjuntos de datos producidos por la fase de preparación de datos, utilizados para la modelización o para los principales trabajos de análisis del proyecto.
+
+#### Descripción del conjunto de datos
+Esta es la descripción de los conjuntos de datos utilizados para el modelado o para el trabajo de análisis principal del proyecto.
+
+# Modelado
+
+## Selección de técnicas de modelado
+Como primer paso en el modelado, seleccione la técnica de modelado inicial. Si se van a aplicar múltiples técnicas, realice esta tarea por separado para cada técnica.
+
+Recuerde que no todas las herramientas y técnicas son aplicables a todas y cada una de las tareas. Para ciertos problemas, sólo algunas técnicas son apropiadas (véase el Apéndice 2, donde se discuten con más detalle las técnicas apropiadas para ciertos tipos de problemas de minería de datos). Los "requisitos políticos" y otras restricciones limitan aún más las opciones disponibles para el ingeniero de minería de datos. Puede ser que sólo se disponga de una herramienta o técnica para resolver el problema, y que la herramienta no sea la mejor, desde un punto de vista técnico.
+
+### Técnica de modelado
+Registre la técnica de modelado real que se utiliza.
+
+Elegir la técnica adecuada, teniendo en cuenta la herramienta seleccionada.
+
+### Modelando Suposiciones
+Muchas técnicas de modelado hacen suposiciones sobre los datos.
+
+* Definir los supuestos que la técnica ha incorporado sobre los datos (por ejemplo, calidad, formato, distribución).
+* Comparar estos supuestos con los del Informe de Descripción de Datos.
+* Asegurarse de que estos supuestos se mantienen y volver a la fase de preparación de datos, si es necesario.
+
+## Generar el diseño de pruebas
+Antes de construir un modelo, es necesario definir un procedimiento para probar la calidad y validez del mismo. Por ejemplo, en tareas supervisadas de minería de datos como la clasificación, es común utilizar porcentajes de error como medidas de calidad para los modelos de minería. Por lo tanto, el diseño de las pruebas especifica que el conjunto de datos debe separarse en conjuntos de entrenamiento y pruebas. El modelo se construye sobre el equipo de entrenamiento y su calidad se estima sobre el equipo de prueba.
+
+### Diseño de pruebas
+Describa el plan previsto para el entrenamiento, prueba y validación de los modelos. Un componente principal del plan es decidir cómo dividir el conjunto de datos disponible en datos de entrenamiento, datos de prueba y datos de validación.
+
+* Comprobar los diseños de prueba existentes para cada objetivo de minería de datos por separado.
+* Decidir los pasos necesarios (número de iteraciones, número de pliegues, etc.)
+* Preparar los datos necesarios para la prueba
+
+## Construcción del modelo
+Ejecutar la herramienta de modelado en el conjunto de datos preparado para crear uno o más modelos.
+
+### Ajustes de parámetros
+Con cualquier herramienta de modelado, a menudo hay un gran número de parámetros que pueden ser ajustados. Enumere los parámetros y sus valores elegidos, junto con la justificación de la elección.
+
+* Ajustar los parámetros iniciales
+* Documentar las razones para elegir esos valores
+
+### Modelos
+Ejecutar la herramienta de modelado en el conjunto de datos preparado para crear uno o más modelos.
+
+* Ejecutar la técnica seleccionada en el conjunto de datos de entrada para producir el modelo.
+* Resultados de la minería de datos después del proceso (por ejemplo, reglas de edición, árboles de visualización)
+
+### Descripción del modelo
+Describir el modelo resultante y evaluar su precisión, robustez y posibles deficiencias. Informe sobre la interpretación de los modelos y las dificultades encontradas.
+
+* Describir cualquier característica del modelo actual que pueda ser útil para el futuro.
+* Grabar los ajustes de los parámetros utilizados para producir el modelo
+* Describa detalladamente el modelo y sus características especiales.
+* Para los modelos basados en reglas, enumerar las reglas producidas, más cualquier evaluación de la precisión y cobertura por regla o por modelo general.
+* Para modelos opacos, enumerar cualquier información técnica sobre el modelo (como la topología de la red neuronal) y cualquier descripción de comportamiento producida por el proceso de modelado (como la precisión o la sensibilidad).
+* Describir el comportamiento y la interpretación del modelo
+* Establecer conclusiones con respecto a los patrones en los datos (si los hay); a veces el modelo revela hechos importantes acerca de los datos sin un proceso de evaluación separado (por ejemplo, que el resultado o la conclusión se duplica en uno de los insumos).
+
+## Evaluación
+El modelo debe ser evaluado ahora para asegurar que cumple con los criterios de éxito de la minería de datos y pasa los criterios de prueba deseados. Esta es una evaluación puramente técnica basada en el resultado de las tareas de modelado.
+
+### Evaluación del modelo
+
+Resuma los resultados de esta tarea, enumere las cualidades de los modelos generados (por ejemplo, en términos de precisión) y clasifique su calidad en relación entre sí.
+
+* Evaluar los resultados con respecto a los criterios de evaluación
+* Resultados de la prueba con respecto a una estrategia de prueba (por ejemplo: entrenamiento y prueba, validación cruzada, bootstrapping, etc.).
+* Comparar los resultados de la evaluación y la interpretación
+* Crear un ranking de resultados con respecto al éxito y a los criterios de evaluación.
+* Seleccione los mejores modelos
+* Interpretar los resultados en términos de negocio (en la medida de lo posible en esta fase).
+* Obtener comentarios de los expertos de dominio sobre los modelos
+* Comprobar la viabilidad del modelo
+* Comprobar el efecto sobre el objetivo de la minería de datos
+* Verificar el modelo contra la base de conocimiento dada para ver si la información descubierta es novedosa y útil.
+* Comprobar la fiabilidad del resultado
+* Analizar el potencial de despliegue de cada resultado
+* Si hay una descripción verbal del modelo generado (por ejemplo, mediante reglas), evalúe las reglas: ¿Son lógicos, son factibles, hay demasiados o muy pocos, ofenden el sentido común?
+* Evaluar los resultados
+* Obtener información sobre por qué una determinada técnica de modelado y ciertos ajustes de parámetros conducen a buenos/malos resultados.
+
+Se pueden construir "Tablas de elevación" y "Tablas de ganancia" para determinar qué tan bien está prediciendo el modelo.
+
+### Ajuste revisado de parámetros
+De acuerdo con la evaluación del modelo, revise los ajustes de los parámetros y ajústelos para la siguiente ejecución.
+
+Ajuste los parámetros para producir mejores modelos.
+
+# Evaluación
+Los pasos anteriores de la evaluación trataron factores tales como la precisión y generalidad del modelo. Este paso evalúa el grado en que el modelo cumple con los objetivos de negocio, y busca determinar si hay alguna razón comercial por la cual este modelo es deficiente. Compara los resultados con los criterios de evaluación definidos al inicio del proyecto.
+
+Una buena manera de definir los resultados totales de un proyecto de minería de datos es utilizar la ecuación:
+$$RESULTADOS = MODELOS + RESULTADOS$$$
+
+En esta ecuación, estamos definiendo que el producto total del proyecto de minería de datos no son sólo los modelos (aunque, por supuesto, son importantes), sino también los hallazgos, que definimos como cualquier cosa (aparte del modelo) que sea importante para cumplir con los objetivos del negocio o que conduzca a nuevas preguntas, líneas de enfoque o efectos secundarios (por ejemplo, problemas de calidad de datos descubiertos por la minería de datos). Nota: Aunque el modelo está directamente relacionado con las preguntas del negocio, los hallazgos no necesitan estar relacionados con ninguna pregunta u objetivo, siempre y cuando sean importantes para el promotor del proyecto.
+
+## Evaluar resultados
+Este paso evalúa el grado en que el modelo cumple con los objetivos de negocio, y busca determinar si hay alguna razón comercial por la cual este modelo es deficiente. Otra opción es probar los modelos en aplicaciones de prueba en la aplicación real, si las limitaciones de tiempo y presupuesto lo permiten.
+
+Además, la evaluación también valora otros resultados generados por la minería de datos. Los resultados de la minería de datos cubren modelos que están relacionados con los objetivos comerciales originales y todos los demás hallazgos. Algunos están relacionados con los objetivos comerciales originales, mientras que otros pueden revelar desafíos, información o pistas adicionales para futuros proyectos.
+
+### Evaluación de los resultados de la minería de datos con respecto a los criterios de éxito del negocio
+Resuma los resultados de la evaluación en términos de criterios de éxito comercial, incluyendo una declaración final relacionada con si el proyecto ya cumple con los objetivos comerciales iniciales.
+
+* Comprender los resultados de la minería de datos
+* Interpretar los resultados en términos de la aplicación
+* Comprobar el efecto sobre el objetivo de la minería de datos
+* Revisar el resultado de la minería de datos contra la base de conocimiento dada para ver si la información descubierta es novedosa y útil.
+* Evaluar y valorar los resultados con respecto a los criterios de éxito empresarial (es decir, si el proyecto ha alcanzado los objetivos empresariales originales).
+* Comparar los resultados de la evaluación y la interpretación
+* Clasificar los resultados con respecto a los criterios de éxito del negocio
+* Comprobar el efecto del resultado en el objetivo de la aplicación inicial
+* Determinar si hay nuevos objetivos de negocio a ser abordados más adelante en el proyecto, o en nuevos proyectos.
+* Recomendaciones de los estados para futuros proyectos de minería de datos
+
+### Modelos aprobados
+Después de tener evaluados a los modelos con respecto a los criterios de éxito del negocio, seleccione y apruebe los modelos generados que cumplan con los criterios seleccionados.
+
+## Proceso de revisión
+En este punto, el modelo resultante parece ser satisfactorio y satisfacer las necesidades del negocio. Ahora es apropiado hacer una revisión más completa de la participación en la minería de datos para determinar si hay algún factor o tarea importante que de alguna manera se haya pasado por alto. En esta etapa del ejercicio de minería de datos, la Revisión del Proceso toma la forma de una Revisión de Garantía de Calidad.
+
+### Revisión del proceso
+Resuma el proceso de revisión y haga una lista de las actividades que se han omitido y/o que deben repetirse.
+
+* Proporcionar una visión general del proceso de minería de datos utilizado
+* Analizar el proceso de minería de datos. Para cada etapa del proceso pregunte:
+    + ¿Era necesario?
+    + ¿Fue ejecutado de manera óptima?
+    + ¿De qué manera podría mejorarse?
+* Identificar las fallas
+* Identificar los pasos engañosos
+* Identificar posibles acciones alternativas y/o caminos inesperados en el proceso
+* Revisar los resultados de la minería de datos con respecto a los criterios de éxito del negocio
+
+## Determinar los siguientes pasos
+Basándose en los resultados de la evaluación y en la revisión del proceso, el equipo del proyecto decide cómo proceder. Las decisiones que se deben tomar incluyen si se debe terminar este proyecto y pasar al despliegue, iniciar nuevas iteraciones o establecer nuevos proyectos de minería de datos.
+
+### Lista de posibles acciones
+Enumere las posibles acciones adicionales junto con las razones a favor y en contra de cada opción.
+
+* Analizar el potencial de despliegue de cada resultado
+* Estimar el potencial de mejora del proceso actual
+* Revisar los recursos restantes para determinar si permiten iteraciones de proceso adicionales (o si se pueden hacer disponibles recursos adicionales).
+* Recomendar iteraciones alternativas
+* Refinar el plan de proceso
+
+### Decisiones
+Describa las decisiones tomadas, junto con la justificación de las mismas.
+
+* Clasificar las posibles acciones
+* Seleccione una de las acciones posibles
+* Documentar las razones de la elección
+
+# Implementación
+
+## Planear la implementación
+Esta tarea comienza con los resultados de la evaluación y concluye con una estrategia para la implementación de los resultados de la minería de datos en el negocio.
+
+### Plan de implementación
+Resuma la estrategia de implementación, incluyendo los pasos necesarios y cómo llevarlos a cabo.
+
+* Resumir resultados que se pueden implementar
+* Desarrollar y evaluar planes alternativos de despliegue
+* Determinar cómo se trasladará el conocimiento o la información a los usuarios.
+* Decidir cómo se va a rastrear el uso del resultado y cómo se medirán sus beneficios (cuando corresponda).
+* Decidir para cada modelo desplegable o resultado de software
+* Establecer cómo se desplegará el modelo o el resultado del software dentro de los sistemas de la organización.
+* Determinar cómo se va a monitorear su uso y cómo se medirán sus beneficios (cuando corresponda).
+* Identificar posibles problemas durante la implementación (trampas que deben evitarse)
+
+## Planear el monitoreo y mantenimiento
+La supervisión y el mantenimiento son cuestiones importantes si los resultados de la minería de datos se convierten en parte del negocio diario y de su entorno. . Para poder monitorear el despliegue de los resultados de la minería de datos, el proyecto necesita un plan detallado de monitoreo y mantenimiento. Este plan tiene en cuenta el tipo específico de despliegue.
+
+### Plan de Monitoreo y Mantenimiento
+Resuma la estrategia de monitoreo y mantenimiento, incluyendo los pasos necesarios y cómo llevarlos a cabo.
+
+* Compruebe los aspectos dinámicos (es decir, ¿qué cosas podrían cambiar en el entorno?).
+* Decidir cómo se monitoreará la precisión
+* Determinar cuando el resultado de la minería de datos o el modelo no debe ser utilizado más. Identificar los criterios (validez, umbral de precisión, nuevos datos, cambio en el dominio de la aplicación, etc.), y lo que debería suceder si el modelo o resultado ya no pudiera utilizarse. (actualizar el modelo, crear un nuevo proyecto de minería de datos, etc.).
+* ¿Los objetivos de negocio del uso del modelo cambiarán con el tiempo? Documentar completamente el problema inicial que el modelo intentaba resolver.
+* Desarrollar un plan de monitoreo y mantenimiento.
+
+## Producir el reporte final
+Al final del proyecto, el equipo del proyecto redacta un informe final. Dependiendo del plan de implementación, este informe puede ser sólo un resumen del proyecto y su experiencia, o una presentación final de los resultados de la minería de datos.
+
+### Reporte final
+Al final del proyecto, habrá al menos un informe final en el que se reunirán todos los hilos conductores. Además de identificar los resultados obtenidos, el informe también debe describir el proceso, mostrar los costos incurridos, definir cualquier desviación del plan original, describir los planes de implementación y hacer recomendaciones para trabajos futuros. El contenido del informe depende en gran medida de la audiencia a la que se dirige.
+
+* Identificar qué informes son necesarios (presentación de diapositivas, resumen de la gestión, conclusiones detalladas, explicación de los modelos, etc.).
+* Analizar hasta qué punto se han cumplido los objetivos iniciales de la minería de datos
+* Identificar los grupos objetivo para el informe
+* Esquema de la estructura y el contenido de los informes
+* Seleccionar los hallazgos que se incluirán en los informes
+* Escribir un informe
+
+### Presentación final
+Además de un informe final, puede ser necesario hacer una presentación final para resumir el proyecto, por ejemplo, ante el patrocinador. La presentación normalmente contiene un subconjunto de la información contenida en el informe final, estructurada de manera diferente.
+
+* Decidir el grupo objetivo para la presentación final y determinar si ya han recibido el informe final.
+* Seleccionar qué elementos del informe final deben incluirse en la presentación final.
+
+## Revisión del proyecto
+Evaluar lo que salió bien y lo que salió mal, lo que se hizo bien y lo que necesita ser mejorado.
+
+### Documentación de experiencias
+Resuma la experiencia importante adquirida durante el proyecto. Por ejemplo, las trampas, los enfoques engañosos o los consejos para seleccionar las técnicas de minería de datos más adecuadas en situaciones similares podrían formar parte de esta documentación. En muchos proyectos, la documentación de la experiencia también cubre cualquier informe que haya sido escrito por miembros individuales del proyecto durante el proyecto.
+
+* Entrevistar a todas las personas importantes involucradas en el proyecto y preguntarles sobre su experiencia durante el proyecto.
+* Si los usuarios finales de la empresa trabajan con los resultados de la minería de datos, entrevistarlos: ¿Están satisfechos? ¿Qué podría haberse hecho mejor? ¿Necesitan apoyo adicional?
+* Resumir los comentarios y escribir la documentación de la experiencia.
+* Analizar el proceso (cosas que funcionaron bien, errores cometidos, lecciones aprendidas, etc.)
+* Documentar el proceso específico de minería de datos (¿Cómo pueden los resultados y la experiencia de la aplicación del modelo ser retroalimentados en el proceso?)
+* Generalizar a partir de los detalles para que la experiencia sea útil para futuros proyectos.
