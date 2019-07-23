@@ -15,8 +15,6 @@ cache:
 
 # Adapt as necessary starting from here
 
-version: 0.1.1
-
 build_script:
   - travis-tool.sh install_deps
 
