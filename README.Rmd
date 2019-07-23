@@ -4,20 +4,21 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE, results='hide', include = FALSE}
+```{r, include = FALSE, echo=FALSE,results='hide'}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "README-"
+  fig.path = "man/figures/README-",
+  out.width = "100%"
 )
-# knitr::render_markdown()
-# knitr::knit(input = "inst/rmarkdown/templates/crispdm_report/skeleton/skeleton.Rmd", output = "CRISP-DM.md")
 ```
-
 # rmddm
 
-[![Build Status](https://travis-ci.org/wdavis12/rmddm.svg?branch=master)](https://travis-ci.org/wdavis12/rmddm) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/wdavis12/rmddm?branch=master&svg=true)](https://ci.appveyor.com/project/wdavis12/rmddm) [![codecov](https://codecov.io/gh/wdavis12/rmddm/branch/master/graph/badge.svg)](https://codecov.io/gh/wdavis12/rmddm)
-
+<!-- badges: start -->
+[![Build Status](https://travis-ci.org/wkdavis/rmddm.svg?branch=master)](https://travis-ci.org/wkdavis/rmddm)
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/wkdavis/rmddm?branch=master&svg=true)](https://ci.appveyor.com/project/wkdavis/rmddm)
+[![codecov](https://codecov.io/gh/wkdavis/rmddm/branch/master/graph/badge.svg)](https://codecov.io/gh/wkdavis/rmddm)
+<!-- badges: end -->
 
 ## Overview
 
@@ -28,8 +29,8 @@ rmddm provides Rmarkdown templates for use in data mining, specifically those pr
 Installing rmddm from github with:
 
 ```{r gh-installation, eval = FALSE}
-# install.packages("devtools")
-devtools::install_github("wdavis12/rmddm")
+# install.packages("remotes")
+remotes::install_github("wkdavis/rmddm")
 ```
 
 ## Example

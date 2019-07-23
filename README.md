@@ -1,27 +1,35 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-rmddm
-=====
 
-[![Build Status](https://travis-ci.org/wdavis12/rmddm.svg?branch=master)](https://travis-ci.org/wdavis12/rmddm) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/wdavis12/rmddm?branch=master&svg=true)](https://ci.appveyor.com/project/wdavis12/rmddm) [![codecov](https://codecov.io/gh/wdavis12/rmddm/branch/master/graph/badge.svg)](https://codecov.io/gh/wdavis12/rmddm)
+# rmddm
 
-Overview
---------
+<!-- badges: start -->
 
-rmddm provides Rmarkdown templates for use in data mining, specifically those projects following the [CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining) process. The package is based on the [rticles](https://github.com/rstudio/rticles) package.
+[![Build
+Status](https://travis-ci.org/wkdavis/rmddm.svg?branch=master)](https://travis-ci.org/wkdavis/rmddm)
+[![AppVeyor Build
+Status](https://ci.appveyor.com/api/projects/status/github/wkdavis/rmddm?branch=master&svg=true)](https://ci.appveyor.com/project/wkdavis/rmddm)
+[![codecov](https://codecov.io/gh/wkdavis/rmddm/branch/master/graph/badge.svg)](https://codecov.io/gh/wkdavis/rmddm)
+<!-- badges: end -->
 
-Installation
-------------
+## Overview
+
+rmddm provides Rmarkdown templates for use in data mining, specifically
+those projects following the
+[CRISP-DM](https://en.wikipedia.org/wiki/Cross-industry_standard_process_for_data_mining)
+process. The package is based on the
+[rticles](https://github.com/rstudio/rticles) package.
+
+## Installation
 
 Installing rmddm from github with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("wdavis12/rmddm")
+# install.packages("remotes")
+remotes::install_github("wkdavis/rmddm")
 ```
 
-Example
--------
+## Example
 
 Creating an RMarkdown template with the CRISP-DM structure:
 
