@@ -92,11 +92,11 @@ Enumere los recursos disponibles para el proyecto, incluyendo el personal (exper
 Recuerde que se puede necesitar personal técnico en momentos puntuales durante todo el proyecto, por ejemplo, durante la transformación de datos.
 
 ### Requisitos, suposiciones y restricciones
-*Enumerar todos los requisitos del proyecto, incluyendo el cronograma de finalización, la comprensibilidad, la calidad de los resultados y la seguridad, así como los aspectos legales
+Enumerar todos los requisitos del proyecto, incluyendo el cronograma de finalización, la comprensibilidad, la calidad de los resultados y la seguridad, así como los aspectos legales
 
-*Listar las suposiciones hechas por el proyecto. Estos pueden ser supuestos sobre los datos, que pueden ser verificados durante la minería de datos, pero también pueden incluir supuestos no verificables relacionados con el proyecto. Es particularmente importante enumerar estos últimos si afectan a la validez de los resultados.
+Listar las suposiciones hechas por el proyecto. Estos pueden ser supuestos sobre los datos, que pueden ser verificados durante la minería de datos, pero también pueden incluir supuestos no verificables relacionados con el proyecto. Es particularmente importante enumerar estos últimos si afectan a la validez de los resultados.
 
-*Enumerar las limitaciones del proyecto. Estas limitaciones pueden incluir la falta de recursos para llevar a cabo algunas de las tareas del proyecto en el tiempo requerido, o pueden existir limitaciones legales o éticas en el uso de los datos o de la solución necesaria para llevar a cabo la tarea de minería de datos.
+Enumerar las limitaciones del proyecto. Estas limitaciones pueden incluir la falta de recursos para llevar a cabo algunas de las tareas del proyecto en el tiempo requerido, o pueden existir limitaciones legales o éticas en el uso de los datos o de la solución necesaria para llevar a cabo la tarea de minería de datos.
 
 #### Requisitos
 * Especificar el perfil del grupo objetivo
@@ -121,6 +121,7 @@ Recuerde que se puede necesitar personal técnico en momentos puntuales durante 
 
 ### Riesgos y Contingencias
 Enumere los riesgos, es decir, los eventos que pueden ocurrir, que impactan el cronograma, el costo o el resultado. Enumerar los correspondientes planes de contingencia.
+
 #### Identificar los riesgos
 * Identificar los riesgos del negocio (por ejemplo, la competencia obtiene primero mejores resultados).
 * Identificar los riesgos organizacionales (por ejemplo, el departamento que solicita el proyecto no tiene fondos para el proyecto).

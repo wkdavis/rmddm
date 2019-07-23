@@ -35,3 +35,4 @@ test_format <- function(name,os_skip = NULL) {
 }
 
 test_format("crispdm_report")
+test_format("crispdm_report_es")

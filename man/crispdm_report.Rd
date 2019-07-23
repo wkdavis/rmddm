@@ -4,10 +4,13 @@
 \alias{crispdm_report}
 \title{CRISP-DM Report}
 \usage{
-crispdm_report(file, edit = FALSE, create_dir = FALSE)
+crispdm_report(file, language = c("en", "es"), edit = FALSE,
+  create_dir = FALSE)
 }
 \arguments{
 \item{file}{File name for the draft}
+
+\item{language}{Language in which to generate the template.}
 
 \item{edit}{\code{TRUE} to edit the template immediately}
 

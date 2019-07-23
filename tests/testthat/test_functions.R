@@ -21,4 +21,12 @@ test_that("crispdm_report function", {
     # render it
     output_file <- rmarkdown::render(testdocs)
     expect_true(file.exists(output_file))
+    
+    # create a draft of the format
+    testdocs <- "testdoc_es.Rmd"
+    crispdm_report(file = testdocs,language = "es")
+    
+    # render it
+    output_file <- rmarkdown::render(testdocs)
+    expect_true(file.exists(output_file))
 })

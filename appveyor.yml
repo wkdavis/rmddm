@@ -14,7 +14,7 @@ cache:
   - C:\RLibrary
 
 # Adapt as necessary starting from here
-version: 0.1.1.{build}
+version: 0.2.0.{build}
 
 build_script:
   - travis-tool.sh install_deps

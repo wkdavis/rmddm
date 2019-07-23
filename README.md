@@ -31,9 +31,20 @@ remotes::install_github("wkdavis/rmddm")
 
 ## Example
 
-Creating an RMarkdown template with the CRISP-DM structure:
+Creating an RMarkdown template with the CRISP-DM structure.
+
+Using rmddm:
+
+``` r
+library(rmddm)
+crispdm_report("MyReport.Rmd")
+crispdm_report("MiInforme.Rmd", language = "es")
+```
+
+Using rmarkdown directly:
 
 ``` r
 library(rmarkdown)
 draft("MyReport.Rmd", template = "crispdm_report", package = "rmddm", edit=FALSE)
+draft("MiInforme.Rmd", template = "crispdm_report_es", package = "rmddm", edit=FALSE)
 ```
