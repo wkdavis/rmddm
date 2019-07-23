@@ -1,9 +1,11 @@
 Package: rmddm
 Type: Package
 Title: RMarkdown Templates for Data Mining
-Version: 0.1.1
-Authors@R: person("Wil","Davis",email="william.davis@worthingtonindustries.com",role=c("aut","cre"))
-Maintainer: Wil Davis <william.davis@worthingtonindustries.com>
+Version: 0.2.0
+Authors@R: c(
+  person("Wil","Davis",email="davis.3243@osu.edu",role=c("aut","cre"),comment = c(ORCID = "0000-0001-9780-2576")),
+  person("Anthony","Segura",email="ansechaves@gmail.com",role=c("ctb"),comment = "Spanish translation of CRISP-DM template.")
+  )
 Description: A set of RMarkdown templates to organize and document data mining projects. Based on the CRISP-DM process and the 'rticles' package.
 URL: https://github.com/wkdavis/rmddm
 BugReports: https://github.com/wkdavis/rmddm/issues
@@ -19,4 +21,4 @@ Imports:
 Suggests:
   testthat
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
